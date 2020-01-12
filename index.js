@@ -3,9 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
   let input = document.querySelector("input")
   let button = document.querySelector("button")
   let ul = document.querySelector("ul")
-  let form = document.querySelector("form")
+  let animalForm = document.querySelector("#animalForm")
   
-  form.addEventListener("submit", async (e) => {
+  animalForm.addEventListener("submit", async (e) => {
     e.preventDefault()
     ul.innerHTML = ""
     let results = await axios.get(`http://localhost:3000/animal/${input.value}`)
