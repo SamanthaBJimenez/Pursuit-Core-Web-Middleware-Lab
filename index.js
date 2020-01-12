@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   let input = document.querySelector("input")
-  let button = document.querySelector("button")
+  // let submit = document.querySelector("#submit")
   let ul = document.querySelector("ul")
   let animalForm = document.querySelector("#animalForm")
   
@@ -15,7 +15,18 @@ document.addEventListener("DOMContentLoaded", () => {
     li2.innerText = results.data.message
     ul.appendChild(li1)
     ul.appendChild(li2)
-    
+  })
+
+  let numberForm = document.querySelector("#numberForm")
+  let floorNum = document.querySelector("#floor")
+  let ceilNum = document.querySelector("#ceiling")
+  let para = document.querySelector("p")
+
+  numberForm.addEventListener("submit", async (e) => {
+    e.preventDefault()
+    para.innerHTML = ""
+    let results = await axios.get(`http://localhost:3000/random/${floor.value}/${ceiling.value}`)
+    para.innerHTML = results.data.randPick
   })
 
 })
